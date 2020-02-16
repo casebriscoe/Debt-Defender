@@ -75,8 +75,9 @@ def user_and_school_info(request):
     _id = request.POST['id']
 
     query = """SELECT * FROM Students JOIN Schools
-    ON Students.School = Schools.Name;"""
-    conn = psycopg2.connect(settings.POSTGRES_STRING)
+    ON Students.School = Schools.Name WHERE Students.id = %s;"""
+    params = (_id)
+    conn = psycopg2.connect(settings.POSTGRES_STRING, params)
     cur = conn.cursor()
     cur.execute(query)
     row = cur.fetchone()
@@ -101,6 +102,19 @@ def user_and_school_info(request):
             'transportation': row[18]
             }
     return JsonResponse(data)
+
+def salaries(request):
+
+    if request.method != 'POST':
+        return redirect('/')
+
+    conn = psycopg2.connect(settings.POSTGRES_STRING)
+    curs = conn.cursor()
+
+    query = """SELECT * FROM salariesPerJob"""
+    cur.execute(query)
+    conn.close()
+
 
 def homepage(request):
     return HttpResponse("hoes mad x24")
