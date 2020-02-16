@@ -141,7 +141,7 @@ def debt_info(request):
             'dining_costs': row[18],
             'transportation': row[19]
             }
-            data['tuition'] = data['instate_tuition'] if data['residency'] == 'in state' else data['oos_tuition']
+    data['tuition'] = data['instate_tuition'] if data['residency'] == 'in state' else data['oos_tuition']
 
     job_query = """SELECT salary FROM Majors 
     JOIN Jobs ON Majors.id = Jobs.major_id 
