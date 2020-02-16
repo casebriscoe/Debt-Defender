@@ -1,0 +1,35 @@
+.app-input-checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    border-bottom: 1px solid grey;
+}
+
+
+.app-input-checkbox .checkbox {
+    /* flex: 0.2 */
+}
+
+.app-input-checkbox .label {
+     flex: 0.4
+}
+
+.app-input-checkbox .input {
+    flex: 0.3;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.app-input-checkbox .input span {
+    margin-right: 1em;
+}
+
+.app-input-checkbox .icon {
+        flex: 0.1;
+}
+
+.app-input-checkbox .icon IonIcon {
+    font-size: 15px;
+}

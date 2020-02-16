@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import DebtDetailsComponent from '../../components/DebtDetails/DebtDetails.component';
 
 export default function DebtDetailsPage() {
 
@@ -9,8 +10,6 @@ export default function DebtDetailsPage() {
 
 
     return (
-        <div>
-            
-        </div>
+        <DebtDetailsComponent />
     );
 }

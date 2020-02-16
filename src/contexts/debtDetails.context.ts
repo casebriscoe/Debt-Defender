@@ -1,4 +1,4 @@
-interface DebtDetails {
+export interface DebtDetails {
 
 }
 

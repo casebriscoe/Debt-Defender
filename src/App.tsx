@@ -35,13 +35,15 @@ import './theme/variables.css';
 import './global.css';
 import AppNavBarComponent from './widgets/NavBar/AppNavBar.component';
 import StudentFormPage from './pages/StudentForm/StudentForm.page';
+import DebtDetailsPage from './pages/DebtDetails/DebtDetails.page';
 
 const App: React.FC = () => (
   <IonApp>
     
     <IonReactRouter>
 
-      <StudentFormPage />
+      {/* <StudentFormPage /> */}
+      <DebtDetailsPage />
       
     </IonReactRouter>
   </IonApp>
