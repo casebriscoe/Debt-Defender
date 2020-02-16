@@ -18,7 +18,9 @@ export default function DebtDetailsComponent({
     books,
     dining,
     income,
-    scholarships
+    scholarships,
+    debt,
+    years
 }) {
 
 
@@ -38,13 +40,15 @@ export default function DebtDetailsComponent({
             <IonContent>
                 <AppPaddingComponent>
                     <DebtDetailsImageComponent
-                        src='http://placekitten.com/g/200/300'
+                        src='https://pbs.twimg.com/profile_images/1105876329029869568/l_5CkS9I.png'
                     />
+
+                    <h5>It will take {years} years to payoff the loans</h5>
                 </AppPaddingComponent>
 
                 <DebtDetailsCardComponent
                     title="Debt"
-                    subtitle="$80,000"
+                    subtitle={`$${debt}`}
                 >
                     <AppInputCheckboxComponent
                         label="Tuition"
@@ -110,8 +114,9 @@ export default function DebtDetailsComponent({
                         jobs.map(({
                             title,
                             salary
-                        }) => (
+                        }, i) => (
                                 <AppListItemComponemt
+                                    key={i}
                                     title={title}
                                     subtitle={`$${salary}`}
                                 />
@@ -127,8 +132,9 @@ export default function DebtDetailsComponent({
                         students.map(({
                             name,
                             years_left
-                        }) => (
+                        }, i) => (
                                 <AppListItemComponemt
+                                    key={i}
                                     title={name}
                                     subtitle={` Paying debt in ${years_left} years`}
                                 />

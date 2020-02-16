@@ -16,7 +16,7 @@ export default function DebtDetailsCardComponent({
                         </IonLabel>
                     }
                     {subtitle &&
-                        <IonLabel slot="end">
+                        <IonLabel >
                             {subtitle}
                         </IonLabel>
                     }

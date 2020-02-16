@@ -3,13 +3,65 @@ import DebtDetailsComponent from '../../components/DebtDetails/DebtDetails.compo
 import { DebtService } from '../../services/debt.service';
 import { Formik } from 'formik';
 
-export default function DebtDetailsPage() {
+const value = {
+    tuition: {
+        checked: true,
+        value: 20000
+    },
+    room_and_board: {
+        checked: true,
+        value: 20000
+    },
+    off_campus_housing: {
+        checked: true,
+        value: 20000
+    },
+    transportation: {
+        checked: true,
+        value: 20000
+    },
+    books: {
+        checked: true,
+        value: 20000
+    },
+    dining: {
+        checked: true,
+        value: 20000
+    },
+    income: {
+        checked: true,
+        value: 20000
+    },
+    scholarships: {
+        checked: true,
+        value: 20000
+    },
+    debt: 80000,
+    years: 1
+}
 
-    const [initalstate, setInitalState] = useState(null);
+export default function DebtDetailsPage({
+    match
+}) {
+
+    const [
+        initalstate,
+        setInitalState
+    ] = useState(value);
 
     useEffect(() => {
-        DebtService.getDebtData(1)
-            .then((data) => console.log("the data", data))
+        const { id } = match.params;
+
+        console.log('the id ', id);
+
+        DebtService.getDebtData(id)
+            .then((data) => {
+
+                console.log("the data", data);
+                if(data) setInitalState(data);
+
+
+            })
             .catch((err) => console.log('the erro ', err))
     }, []);
 
@@ -20,40 +72,7 @@ export default function DebtDetailsPage() {
     const student = { name: 'John Doe', years_left: 6 };
     const students = [student, student];
 
-    const value = {
-        tuition: {
-            checked: true,
-            value: 20000
-        },
-        room_and_board: {
-            checked: true,
-            value: 20000
-        },
-        off_campus_housing: {
-            checked: true,
-            value: 20000
-        },
-        transportation: {
-            checked: true,
-            value: 20000
-        },
-        books: {
-            checked: true,
-            value: 20000
-        },
-        dining: {
-            checked: true,
-            value: 20000
-        },
-        income: {
-            checked: true,
-            value: 20000
-        },
-        scholarships: {
-            checked: true,
-            value: 20000
-        }
-    }
+    
 
 
     const onSubmit = () => {
@@ -63,10 +82,11 @@ export default function DebtDetailsPage() {
 
     return (
         <React.Fragment>
-            {
+            {   
                 <Formik
-                    initialValues={value}
+                    initialValues={initalstate}
                     onSubmit={onSubmit}
+                    enableReinitialize={true}
                 >
                     {({
                         values: {
@@ -77,7 +97,9 @@ export default function DebtDetailsPage() {
                             books,
                             dining,
                             income,
-                            scholarships
+                            scholarships,
+                            debt,
+                            years
                         },
                     }) => (
                             <DebtDetailsComponent
@@ -91,8 +113,9 @@ export default function DebtDetailsPage() {
                                 scholarships={scholarships}
                                 students={students}
                                 jobs={jobs}
+                                debt={debt}
+                                years={years}
                             />
-
                         )}
 
                 </Formik>
