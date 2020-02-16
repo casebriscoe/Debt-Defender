@@ -7,6 +7,7 @@ url = 'http://127.0.0.1:8000/'
 def login_test(data): 
     full_url = url + 'login/'
     response = requests.post(full_url, data=data)
+    print(response)
     return response
 
 data = {
