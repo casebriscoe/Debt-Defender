@@ -1,4 +1,5 @@
 import React from 'react'
+import "./AppInput.component.css"
 import { 
     IonInput, 
     IonItem, 
@@ -10,8 +11,8 @@ export default function AppInputComponent({
     label
 }) {
     return (
-    <IonItem>
-        <IonLabel>{label}</IonLabel>
+    <IonItem className="app-input-box" lines="inset">
+        <IonLabel  position="floating">{label}</IonLabel>
         <IonInput></IonInput>
       </IonItem>
     )

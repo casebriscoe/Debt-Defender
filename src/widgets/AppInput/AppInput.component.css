@@ -1,0 +1,10 @@
+.app-input-box {
+--border-color: #707070;
+--background: white;
+}
+
+.app-input-box, Ionlabel{
+    font-weight: 300;
+    color: grey;
+}
+
