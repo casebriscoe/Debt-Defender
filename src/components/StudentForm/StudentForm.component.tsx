@@ -2,7 +2,9 @@ import React from 'react'
 import { IonHeader, IonContent } from '@ionic/react'
 import AppNavBarComponent from '../../widgets/NavBar/AppNavBar.component'
 
-export default function StudentFormComponent() {
+export default function StudentFormComponent({
+    onSubmit
+}) {
     return (
         <React.Fragment>
             <IonHeader>
