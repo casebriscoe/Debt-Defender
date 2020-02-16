@@ -29,7 +29,7 @@ def time_calculation(principal, income, rate):
             break;
     dictionary = {'monthly_payment' : monthly_payment_calculator(income), 'tax_bracket' : tax_prediction(income),
                   'principal' : principal, 'num_of_months' : counter, 'leftover_income' : income_after_tax(income),
-                  'living_expenses' : calculate_living_expenses()}
+                  'living_expenses' : calculate_living_expenses(), 'years': counter/12}
     return dictionary
 
 def leftover_cost(principal, income, rate):

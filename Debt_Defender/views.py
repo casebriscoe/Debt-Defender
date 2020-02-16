@@ -5,6 +5,7 @@ import psycopg2
 import json
 from . import settings
 from django.core.serializers.json import DjangoJSONEncoder
+from calculation import main
 
 @csrf_exempt
 def login(request):
@@ -103,10 +104,7 @@ def user_and_school_info(request):
             }
     return JsonResponse(data)    
 
-@csrf_exempt
-def fuck_this(request):
-    print(request.POST)
-    return JsonResponse({"hoes":'mad'})
+
 
 def homepage(request):
     return HttpResponse("hoes mad x24")
