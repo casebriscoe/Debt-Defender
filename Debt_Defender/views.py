@@ -71,7 +71,7 @@ def get_student_info(request):
 def user_and_school_info(request):
     if request.method != 'POST':
         return redirect('/')
-
+    print(request.POST)
     _id = request.POST['_id']
 
     query = """SELECT * FROM Students JOIN Schools
