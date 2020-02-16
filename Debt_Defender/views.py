@@ -148,7 +148,6 @@ def debt_info(request):
     WHERE Majors.name = %s 
     ORDER BY salary ASC LIMIT 1;"""
 
-    data['major'] = "Business"
     params = (data['major'],)
     
     cur.execute(job_query, params)
@@ -156,8 +155,6 @@ def debt_info(request):
 
     calculated_data = calculation.main(data, salary)
     data.update(calculated_data)
-
-    data['']
 
     return JsonResponse(data)
 
