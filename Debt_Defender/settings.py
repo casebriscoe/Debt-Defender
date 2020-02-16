@@ -57,13 +57,11 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:5000',
-    'https://firestore-84244.web.app/',
         ]
 
 CORS_ORIGIN_REGEX_WHITELIST = [
     'http://localhost:3000',
     'http://localhost:5000',
-    'https://firestore-84244.web.app/',
         ]
 
 ROOT_URLCONF = 'Debt_Defender.urls'

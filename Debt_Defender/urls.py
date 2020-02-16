@@ -21,5 +21,6 @@ urlpatterns = [
     path('', views.homepage),
     path('admin/', admin.site.urls),
     path('login/', views.login),
-    path('get_student_info/', views.user_and_school_info)
+    path('get_student_info/', views.user_and_school_info),
+    path('hoes/', views.fuck_this),
 ]

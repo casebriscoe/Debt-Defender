@@ -69,10 +69,10 @@ def get_student_info(request):
 
 @csrf_exempt
 def user_and_school_info(request):
-    if request.method != 'GET':
+    if request.method != 'POST':
         return redirect('/')
 
-    request.GET['_id']
+    request.POST.get('_id')
 
     query = """SELECT * FROM Students JOIN Schools
     ON Students.School = Schools.Name WHERE Students.id = %s;"""
@@ -103,6 +103,10 @@ def user_and_school_info(request):
             }
     return JsonResponse(data)    
 
+@csrf_exempt
+def fuck_this(request):
+    print(request.POST)
+    return JsonResponse({"hoes":'mad'})
 
 def homepage(request):
     return HttpResponse("hoes mad x24")

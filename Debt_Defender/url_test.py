@@ -4,22 +4,13 @@ import psycopg2
 
 url = 'http://127.0.0.1:8000/'
 
-def login_test(data): 
-    full_url = url + 'login/'
-    response = requests.post(full_url, data=data)
-    print(response)
-    return response
-
-def student_info_test(data):
-    full_url = url + 'student_info/'
-    response = requests.post(full_url, data=data)
-    return response
+def fuck(data):
+    print(requests.post(url + "hoes/", data=data))
 
 data = {
-        'id':5
+        "naenae" : "priviliges"
         }
-student_info_test(data)
-
+fuck(data)
 #conn = psycopg2.connect(settings.POSTGRES_STRING)
 #curr = conn.cursor()
 #query = """CREATE TABLE Students(id SERIAL,
