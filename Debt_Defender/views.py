@@ -3,9 +3,9 @@ from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
 import psycopg2
 import json
-from . import settings
+import settings
 from django.core.serializers.json import DjangoJSONEncoder
-from calculation import main
+import calculation
 
 @csrf_exempt
 def login(request):
@@ -150,7 +150,7 @@ def debt_info(request):
     cur.execute(job_query, (data['major']))
     salary = int(cur.fetchone())  
 
-    calculated_data = main(data, salary)
+    calculated_data = calculation.main(data, salary)
     data.update(calculated_data)
 
     return JsonResponse(data)
