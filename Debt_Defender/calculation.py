@@ -15,8 +15,8 @@ def tax_prediction(income):
     return 0.37
 
 def time_calculation(principal, income, rate):
-    taxedIncome = monthlyPaymentCalculator(income)
-    return -log(1+rate,(1-principal*rate/taxedIncome))
+    taxed_income = monthly_payment_calculator(income)
+    return -math.log((1-principal*rate/taxed_income),1+rate)
 
     def calculate_living_expenses():
     rent = 1641 * 12
@@ -27,7 +27,7 @@ def time_calculation(principal, income, rate):
     return rent + utilities + food + transportation + healthcare
  
 def income_after_tax(income):
-    free_money = salary - (tax_prediction(income) * income) - calculate_living_expenses()
+    free_money = income - (tax_prediction(income) * income) - calculate_living_expenses()
     return free_money
  
 def monthly_payment_calculator(income):
