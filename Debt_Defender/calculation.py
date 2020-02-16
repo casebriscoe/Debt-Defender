@@ -1,4 +1,6 @@
 import math
+import sys
+
 def tax_prediction(income):
     if(income<9875):
         return 0.1
@@ -15,20 +17,44 @@ def tax_prediction(income):
     return 0.37
 
 def time_calculation(principal, income, rate):
-    taxed_income = monthly_payment_calculator(income)
-    return -math.log((1-principal*rate/taxed_income),1+rate)
+    counter = 0
+    principal_temp = principal
+    while(principal_temp > 0):
+        principal_temp = leftover_cost(principal_temp, income, rate)
+        if(counter == 1 and principal < principal_temp):
+            return -1
+        counter += 1
+        if(counter >= 10200):
+            print("Monthly Payment: ",monthly_payment_calculator(income))
+            return 10200
+    print("Monthly Payment: ",monthly_payment_calculator(income))
+    return counter
 
-    def calculate_living_expenses():
+def leftover_cost(principal, income, rate):
+    monthly_payment = monthly_payment_calculator(income)
+    monthly_interest = (principal * rate) / 12
+    principal_payment = monthly_payment - monthly_interest
+    return principal - principal_payment
+
+
+def calculate_living_expenses():
     rent = 1641 * 12
     utilities = 51.28 * 12
     food = 13 * 12
     transportation = 237 * 12
     healthcare = 206 * 12
-    return rent + utilities + food + transportation + healthcare
- 
+    total = rent + utilities + food + transportation + healthcare
+    return total
+
 def income_after_tax(income):
     free_money = income - (tax_prediction(income) * income) - calculate_living_expenses()
     return free_money
- 
+
 def monthly_payment_calculator(income):
-    return income_after_tax(income) * .5
+    payment = (income_after_tax(income) * .5) / 12
+    return payment
+
+def main(principal, income, rate):
+    print(time_calculation(principal, income, rate))
+
+main(int(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3]))
