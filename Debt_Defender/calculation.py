@@ -32,6 +32,3 @@ def income_after_tax(income):
  
 def monthly_payment_calculator(income):
     return income_after_tax(income) * .5
- 
-
-print(time_calculation(30000,50000,0.058))
