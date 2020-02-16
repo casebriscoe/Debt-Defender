@@ -24,11 +24,12 @@ def time_calculation(principal, income, rate):
         if(counter == 1 and principal < principal_temp):
             return -1
         counter += 1
-        if(counter >= 10200):
-            print("Monthly Payment: ",monthly_payment_calculator(income))
-            return 10200
-    print("Monthly Payment: ",monthly_payment_calculator(income))
-    return counter
+        if(counter >= 1200):
+            break;
+    dictionary = {'monthly_payment' : monthly_payment_calculator(income), 'tax_bracket' : tax_prediction(income),
+                  'principal' : principal, 'num_of_months' : counter, 'leftover_income' : income_after_tax(income),
+                  'living_expenses' : calculate_living_expenses()}
+    return dictionary
 
 def leftover_cost(principal, income, rate):
     monthly_payment = monthly_payment_calculator(income)
@@ -47,14 +48,14 @@ def calculate_living_expenses():
     return total
 
 def income_after_tax(income):
-    free_money = income - (tax_prediction(income) * income) - calculate_living_expenses()
-    return free_money
+    leftover_income = income - (tax_prediction(income) * income) - calculate_living_expenses()
+    return leftover_income
 
 def monthly_payment_calculator(income):
     payment = (income_after_tax(income) * .5) / 12
     return payment
 
 def main(principal, income, rate):
-    print(time_calculation(principal, income, rate))
+    return time_calculation(principal, income, rate)
 
 main(int(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3]))
