@@ -56,7 +56,7 @@ def monthly_payment_calculator(income):
     payment = (income_after_tax(income) * .5) / 12
     return payment
 
-def main(principal, income, rate):
+def main():
     return time_calculation(principal, income, rate)
 
 

@@ -105,8 +105,6 @@ def user_and_school_info(request):
     return JsonResponse(data)    
 
 
-
-
 def debt_info(request):
     if request.method != 'POST':
         return redirect('/')
@@ -114,7 +112,6 @@ def debt_info(request):
 
     query = """SELECT * FROM Students JOIN Schools
     ON Students.School = Schools.Name WHERE Students.id = %s;"""
-
 
     conn = psycopg2.connect(settings.POSTGRES_STRING)
     cur = conn.cursor()
@@ -130,15 +127,18 @@ def debt_info(request):
             'major': row[5],
             'scholarships': row[6],
             'semesters': row[7],
-            'bookcosts': row[10],
-            'personalexpenses': row[11],
-            'in_state_tuition': row[12],
-            'out_of_state_tuition': row[13],
-            'room_and_board': row[14],
-            'off_campus_housing': row[15],
-            'books': row[16],
-            'dining': row[17],
-            'transportation': row[18]
+            'residency': row[8],
+            'school_id': row[9],
+            'school_name': row[10],
+            'book_costs': row[11],
+            'personal_expenses': row[12],
+            'instate_tuition': row[13],
+            'oos_tuition': row[14],
+            'room_and_board': row[15],
+            'off_campus_housing': row[16],
+            'books': row[17],
+            'dining_costs': row[18],
+            'transportation': row[19]
             }
     
 
