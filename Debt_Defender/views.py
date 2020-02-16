@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
 import psycopg2
 import json
-from settings import POSTGRES_STRING
+from . import settings
 from django.core.serializers.json import DjangoJSONEncoder
 
 @csrf_exempt
@@ -22,7 +22,7 @@ def login(request):
     params = (username, school, commitment, 
             major, scholarship_amount, total_semesters)
 
-    conn = psycopg2.connect(POSTGRES_STRING)
+    conn = psycopg2.connect(settings.POSTGRES_STRING)
     curr = conn.cursor()
     query = """INSERT INTO Students 
                   (name, school, income, commitment, major,
