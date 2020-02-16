@@ -10,8 +10,7 @@ export default function StudentFormPage() {
        </IonHeader>
         <IonContent>
 
-        <h4>
-            color: primary;
+        <h4 id="info-prompt">
             Please provide personal info
         </h4>
         </IonContent>
