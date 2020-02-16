@@ -1,13 +1,19 @@
 import React from 'react'
-import { IonHeader, IonContent, IonInput } from '@ionic/react'
+import { IonHeader, IonContent, IonInput, IonSlides, IonSlide } from '@ionic/react'
 import AppNavBarComponent from '../../widgets/NavBar/AppNavBar.component'
 import "./StudentForm.component.css"
 import AppInputComponent from '../../widgets/AppInput/AppInput.component'
 import AppPaddingComponent from '../../widgets/AppPadding/AppPadding.component'
 import AppButtonComponent from '../../widgets/AppButton/AppButton.component'
 
+const slideOpts = {
+    initialSlide: 1,
+    speed: 400
+  };
+
 export default function StudentFormComponent({
     onSubmit
+    
 }) {
     return (
         <React.Fragment>
@@ -17,13 +23,42 @@ export default function StudentFormComponent({
             <IonContent>
 
                 <AppPaddingComponent padding = {20}>
-                    <h4 id="info-prompt">
-                        Please provide personal info
-                    </h4>
-                    <AppInputComponent label="Name..."/>
-                    <AppInputComponent label="Expected income (yearly)..."/>
-                    <AppInputComponent label="Scholarships (yearly)..."/>
-                    <AppButtonComponent/>
+                   
+                    
+                         {/* slider  */}
+                            <IonSlides pager={true} options={slideOpts} mode={"md"}>
+                            <IonSlide>
+                                    <div>
+                                         <h4 id="info-prompt">
+                                     Please provide personal info
+                                        </h4>
+                                        <AppInputComponent label="Name..."/>
+                                        <AppInputComponent label="Expected income (yearly)..."/>
+                                        <AppInputComponent label="Scholarships (yearly)..."/>
+                                        <AppButtonComponent/>
+                                      </div>
+                            </IonSlide>
+                            <IonSlide>
+                                        <div>
+                                    <h4 id="info-prompt">
+                                     Please provide personal info
+                                    </h4>
+                                    <AppInputComponent label="School Name"/>
+                                    <AppInputComponent label="Residency Status"/>
+                                    <AppInputComponent label="Total Semester"/>
+                                    <AppInputComponent label="Enrollment Status"/>                   
+                                    {/* <AppButtonComponent/>
+                                        needs a back button and a submit button
+                                    */}
+
+
+                                    </div>
+                            </IonSlide>
+                            <IonSlide>
+                                <h1>Slide 3</h1>
+                            </IonSlide>
+                            </IonSlides>
+                        {/* slider */}
                 </AppPaddingComponent>
 
             </IonContent>
