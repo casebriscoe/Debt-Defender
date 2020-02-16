@@ -1,5 +1,9 @@
-import React, { useEffect, useRef } from 'react'
-import { IonHeader, IonContent, IonInput, IonSlides, IonSlide, IonButton, IonIcon } from '@ionic/react'
+import React, { useRef } from 'react'
+import { 
+    IonHeader, 
+    IonContent, 
+    IonSlides, 
+    IonSlide, IonButton, IonIcon } from '@ionic/react'
 import AppNavBarComponent from '../../widgets/NavBar/AppNavBar.component'
 import "./StudentForm.component.css"
 import AppInputComponent from '../../widgets/AppInput/AppInput.component'
@@ -10,6 +14,14 @@ const slideOpts = {
 };
 
 export default function StudentFormComponent({
+    name,
+    expected_income,
+    scholarships,
+    school_name,
+    residency_status,
+    semesters,
+    enrollment_status,
+    handleChange,
     onSubmit
 }) {
 
@@ -21,7 +33,7 @@ export default function StudentFormComponent({
 
             const swiper = await swiperRef.current.getSwiper();
             await swiper.slideNext();
-
+            
         }
     }
 
@@ -49,9 +61,21 @@ export default function StudentFormComponent({
                                 <h4 id="info-prompt">
                                     Please provide personal info
                                 </h4>
-                                <AppInputComponent label="Name..." />
-                                <AppInputComponent label="Expected income (yearly)..." />
-                                <AppInputComponent label="Scholarships (yearly)..." />
+                                <AppInputComponent
+                                    label="Name..."
+                                    onChange={handleChange('name')}
+                                    value={name}
+                                />
+                                <AppInputComponent
+                                    label="Expected income (yearly)..."
+                                    onChange={handleChange('expected_income')}
+                                    value={expected_income}
+                                />
+                                <AppInputComponent
+                                    label="Scholarships (yearly)..."
+                                    onChange={handleChange('scholarships')}
+                                    value={scholarships}
+                                />
 
                                 <div className="actions">
                                     <IonButton fill="clear" onClick={onNext}>
@@ -67,17 +91,32 @@ export default function StudentFormComponent({
                                 <h4 id="info-prompt">
                                     Please provide student information
                                 </h4>
-                                <AppInputComponent label="School Name" />
-                                <AppInputComponent label="Residency Status" />
-                                <AppInputComponent label="Total Semester" />
-                                <AppInputComponent label="Enrollment Status" />
-
+                                <AppInputComponent
+                                    label="School Name"
+                                    onChange={handleChange('school_name')}
+                                    value={school_name}
+                                />
+                                <AppInputComponent
+                                    label="Residency Status"
+                                    onChange={handleChange('residency_status')}
+                                    value={residency_status}
+                                />
+                                <AppInputComponent
+                                    label="Total Semester"
+                                    onChange={handleChange('semesters')}
+                                    value={semesters}
+                                />
+                                <AppInputComponent
+                                    label="Enrollment Status"
+                                    onChange={handleChange('enrollment_status')}
+                                    value={enrollment_status}
+                                />
                                 <div className="actions">
                                     <IonButton fill="clear" onClick={onPrev}>
                                         Back
                                     </IonButton>
 
-                                    <IonButton  onClick={onSubmit}>
+                                    <IonButton onClick={onSubmit}>
                                         Submit
                                     </IonButton>
                                 </div>

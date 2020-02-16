@@ -37,13 +37,29 @@ export default function StudentFormPage({
             onSubmit={onSubmit}
         >
             {({
+        
                 values: {
-
+                    name,
+                    expected_income,
+                    scholarships,
+                    school_name,
+                    residency_status,
+                    semesters,
+                    enrollment_status
                 },
-                handleSubmit
+                handleSubmit,
+                handleChange
             }) => (
                     <StudentFormComponent
+                        name={name}
+                        expected_income={expected_income}
                         onSubmit={handleSubmit}
+                        scholarships={scholarships}
+                        school_name={school_name}
+                        residency_status={residency_status}
+                        semesters={semesters}
+                        enrollment_status={enrollment_status}
+                        handleChange={handleChange}
                     />
                 )}
         </Formik>
