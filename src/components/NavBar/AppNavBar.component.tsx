@@ -1,9 +1,9 @@
-import "./NavBar.component.css"
+import "./AppNavBar.component.css"
 import React from 'react'
 import { IonToolbar, IonButtons, IonButton, IonIcon, IonTitle } from "@ionic/react"
 
 
-export default function NavBarComponent() {
+export default function AppNavBarComponent() {
     return (
         <IonToolbar color="primary">
     <IonButtons slot="secondary">
@@ -19,7 +19,7 @@ export default function NavBarComponent() {
         <IonIcon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical" />
       </IonButton>
     </IonButtons>
-    <IonTitle>Secondary Toolbar</IonTitle>
+    <IonTitle>Debt Defender</IonTitle>
   </IonToolbar>
     )
 }
