@@ -26,7 +26,7 @@ export default function StudentFormComponent({
                    
                     
                          {/* slider  */}
-                            <IonSlides pager={true} options={slideOpts} mode={"ios"}>
+                            <IonSlides pager={true} options={slideOpts} mode={"md"}>
                             <IonSlide>
                                     <div>
                                          <h4 id="info-prompt">
@@ -39,7 +39,20 @@ export default function StudentFormComponent({
                                       </div>
                             </IonSlide>
                             <IonSlide>
-                                <h1>Slide 2</h1>
+                                        <div>
+                                    <h4 id="info-prompt">
+                                     Please provide personal info
+                                    </h4>
+                                    <AppInputComponent label="School Name"/>
+                                    <AppInputComponent label="Residency Status"/>
+                                    <AppInputComponent label="Total Semester"/>
+                                    <AppInputComponent label="Enrollment Status"/>                   
+                                    {/* <AppButtonComponent/>
+                                        needs a back button and a submit button
+                                    */}
+
+
+                                    </div>
                             </IonSlide>
                             <IonSlide>
                                 <h1>Slide 3</h1>
