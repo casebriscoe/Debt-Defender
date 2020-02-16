@@ -22,7 +22,8 @@ def time_calculation(principal, income, rate):
     while(principal_temp > 0):
         principal_temp = leftover_cost(principal_temp, income, rate)
         if(counter == 1 and principal < principal_temp):
-            return -1
+            counter = -1
+            break
         counter += 1
         if(counter >= 1200):
             break;
@@ -58,4 +59,4 @@ def monthly_payment_calculator(income):
 def main(principal, income, rate):
     return time_calculation(principal, income, rate)
 
-###//#####main(int(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3]))
+#################//#####main(int(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3]))
