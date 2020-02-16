@@ -1,10 +1,9 @@
-import React from 'react'
-import { IonHeader, IonContent, IonInput, IonSlides, IonSlide } from '@ionic/react'
+import React, { useEffect, useRef } from 'react'
+import { IonHeader, IonContent, IonInput, IonSlides, IonSlide, IonButton, IonIcon } from '@ionic/react'
 import AppNavBarComponent from '../../widgets/NavBar/AppNavBar.component'
 import "./StudentForm.component.css"
 import AppInputComponent from '../../widgets/AppInput/AppInput.component'
 import AppPaddingComponent from '../../widgets/AppPadding/AppPadding.component'
-import AppButtonComponent from '../../widgets/AppButton/AppButton.component'
 
 const slideOpts = {
     initialSlide: 0
@@ -13,6 +12,29 @@ const slideOpts = {
 export default function StudentFormComponent({
     onSubmit
 }) {
+
+    const swiperRef = useRef(null);
+
+
+    const onNext = async () => {
+        if (swiperRef.current) {
+
+            const swiper = await swiperRef.current.getSwiper();
+            await swiper.slideNext();
+
+        }
+    }
+
+    const onPrev = async () => {
+        if (swiperRef.current) {
+
+            const swiper = await swiperRef.current.getSwiper();
+            await swiper.slidePrev();
+
+        }
+    }
+
+
     return (
         <React.Fragment>
             <IonHeader>
@@ -21,8 +43,7 @@ export default function StudentFormComponent({
             <IonContent>
 
                 <AppPaddingComponent className="form-container" padding={20}>
-                    {/* slider  */}
-                    <IonSlides options={slideOpts}>
+                    <IonSlides className="swiper-no-swiping" ref={swiperRef} options={slideOpts}>
                         <IonSlide>
                             <div className="personal-info">
                                 <h4 id="info-prompt">
@@ -33,9 +54,10 @@ export default function StudentFormComponent({
                                 <AppInputComponent label="Scholarships (yearly)..." />
 
                                 <div className="actions">
-                                    <AppButtonComponent >
+                                    <IonButton fill="clear" onClick={onNext}>
                                         Next
-                                    </AppButtonComponent>
+                                        <IonIcon name="chevron-foward" slot="end" />
+                                    </IonButton>
                                 </div>
 
                             </div>
@@ -51,12 +73,17 @@ export default function StudentFormComponent({
                                 <AppInputComponent label="Enrollment Status" />
 
                                 <div className="actions">
+                                    <IonButton fill="clear" onClick={onPrev}>
+                                        Back
+                                    </IonButton>
 
+                                    <IonButton  onClick={onSubmit}>
+                                        Submit
+                                    </IonButton>
                                 </div>
                             </div>
                         </IonSlide>
                     </IonSlides>
-                    {/* slider */}
                 </AppPaddingComponent>
             </IonContent>
         </React.Fragment>

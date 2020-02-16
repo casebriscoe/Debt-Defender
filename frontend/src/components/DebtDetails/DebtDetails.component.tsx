@@ -40,6 +40,8 @@ export default function DebtDetailsComponent({
                     <DebtDetailsImageComponent
                         src='http://placekitten.com/g/200/300'
                     />
+
+                    <h5>It will take 6 years to payoff the loans</h5>
                 </AppPaddingComponent>
 
                 <DebtDetailsCardComponent
@@ -110,8 +112,9 @@ export default function DebtDetailsComponent({
                         jobs.map(({
                             title,
                             salary
-                        }) => (
+                        }, i) => (
                                 <AppListItemComponemt
+                                    key={i}
                                     title={title}
                                     subtitle={`$${salary}`}
                                 />
@@ -127,8 +130,9 @@ export default function DebtDetailsComponent({
                         students.map(({
                             name,
                             years_left
-                        }) => (
+                        }, i) => (
                                 <AppListItemComponemt
+                                    key={i}
                                     title={name}
                                     subtitle={` Paying debt in ${years_left} years`}
                                 />

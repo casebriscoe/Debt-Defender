@@ -3,7 +3,7 @@ import { api } from "./http.service"
 const getDebtData = async (studentId: number) => {
     try {
 
-        const { data } = await api.post('/get_student_info/', { params: { _id: studentId } });
+        const { data } = await api.get('/get_student_info/', { params: { _id: studentId } });
 
         return data;
 
