@@ -56,10 +56,11 @@ def monthly_payment_calculator(income):
     payment = (income_after_tax(income) * .5) / 12
     return payment
 
-def main():
-    return time_calculation(principal, income, rate)
+def main(data, job_income):
+    principal = total_debt(data)
+    return time_calculation(principal, job_income, rate)
 
-def total_tuition(data):
+def total_debt(data):
     sum=data['book_costs']+data['personal_expenses']+data['room_and_board']+data['off_campus_housing']+data['books']+data['dining_costs']+data['transportation']-data['income']-data['scholarships']
     if(data['residency'].lower()=='in state'):
         sum+=data['instate_tuition']
