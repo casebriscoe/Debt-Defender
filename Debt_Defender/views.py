@@ -35,3 +35,7 @@ def login(request):
 
     return "beep"
 
+
+def homepage(request):
+    return "hoes mad x24"
+
