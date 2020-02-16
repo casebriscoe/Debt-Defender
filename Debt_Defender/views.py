@@ -69,10 +69,10 @@ def get_student_info(request):
 
 @csrf_exempt
 def user_and_school_info(request):
-    if request.method != 'POST':
+    if request.method != 'GET':
         return redirect('/')
-    print(request.POST)
-    _id = request.POST['_id']
+
+    request.GET['_id']
 
     query = """SELECT * FROM Students JOIN Schools
     ON Students.School = Schools.Name WHERE Students.id = %s;"""
