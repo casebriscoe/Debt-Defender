@@ -16,8 +16,9 @@ def tax_prediction(income):
         return 0.35
     return 0.37
 
-def time_calculation(principal, income, rate):
+def time_calculation(principal, income, rate=0.58):
     counter = 0
+    income = income[0]
     principal_temp = principal
     while(principal_temp > 0):
         principal_temp = leftover_cost(principal_temp, income, rate)
@@ -58,10 +59,10 @@ def monthly_payment_calculator(income):
 
 def main(data, job_income):
     principal = total_debt(data)
-    return time_calculation(principal, job_income, rate)
+    return time_calculation(principal, job_income)
 
 def total_debt(data):
-    sum=data['book_costs']+data['personal_expenses']+data['room_and_board']+data['off_campus_housing']+data['books']+data['dining_costs']+data['transportation']-data['income']-data['scholarships']
+    sum=data['book_costs']+data['personal_expenses']+data['room_and_board']+data['transportation']-data['income']-data['scholarships']
     if(data['residency'].lower()=='in state'):
         sum+=data['instate_tuition']
     else:

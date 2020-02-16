@@ -3,9 +3,9 @@ from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
 import psycopg2
 import json
-import settings
 from django.core.serializers.json import DjangoJSONEncoder
-import calculation
+from . import calculation
+from . import settings
 
 @csrf_exempt
 def login(request):
@@ -117,9 +117,8 @@ def debt_info(request):
     cur = conn.cursor()
     params = (id)
     cur.execute(query, params)
-    row = cur.fetchone()
-  
-
+    row = cur.fetchone() 
+    print(row)
     data = {
             'id': row[0],
             'name': row[1],
@@ -147,8 +146,12 @@ def debt_info(request):
     JOIN Jobs ON Majors.id = Jobs.major_id 
     WHERE Majors.name = %s 
     ORDER BY salary ASC LIMIT 1;"""
-    cur.execute(job_query, (data['major']))
-    salary = int(cur.fetchone())  
+
+    data['major'] = "Business"
+    params = (data['major'],)
+    
+    cur.execute(job_query, params)
+    salary = cur.fetchone()  
 
     calculated_data = calculation.main(data, salary)
     data.update(calculated_data)
