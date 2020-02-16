@@ -73,13 +73,13 @@ def user_and_school_info(request):
         return redirect('/')
 
     _id = request.POST.get('_id')
-
+    print(str(_id))
     query = """SELECT * FROM Students JOIN Schools
     ON Students.School = Schools.Name WHERE Students.id = %s;"""
     params = (_id)
     conn = psycopg2.connect(settings.POSTGRES_STRING)
     cur = conn.cursor()
-    cur.execute(query)
+    cur.execute(query, params)
     row = cur.fetchone()
     conn.close()
     data = {
