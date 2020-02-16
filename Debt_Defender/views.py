@@ -157,6 +157,8 @@ def debt_info(request):
     calculated_data = calculation.main(data, salary)
     data.update(calculated_data)
 
+    data['']
+
     return JsonResponse(data)
 
 def homepage(request):
