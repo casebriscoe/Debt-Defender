@@ -33,10 +33,12 @@ import './theme/variables.css';
 
 /* Global CSS */
 import './global.css';
+import AppNavBarComponent from './components/NavBar/AppNavBar.component';
 import StudentFormPage from './pages/StudentForm/StudentForm.page';
 
 const App: React.FC = () => (
   <IonApp>
+    
     <IonReactRouter>
 
       <StudentFormPage />
