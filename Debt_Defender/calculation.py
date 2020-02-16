@@ -62,10 +62,6 @@ def main(data, job_income):
     return time_calculation(principal, job_income)
 
 def total_debt(data):
-    sum=data['book_costs']+data['personal_expenses']+data['room_and_board']+data['transportation']-data['income']-data['scholarships']
-    if(data['residency'].lower()=='in state'):
-        sum+=data['instate_tuition']
-    else:
-        sum+=data['oos_tuition']
+    sum=data['tuition'] + data['book_costs']+data['personal_expenses']+data['room_and_board']+data['transportation']-data['income']-data['scholarships']
     return data['semesters']*sum/2
 #################//#####main(int(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3]))

@@ -140,6 +140,7 @@ def debt_info(request):
             'books': row[17],
             'dining_costs': row[18],
             'transportation': row[19]
+            'tuition': data['instate_tuition'] if data['residency'] == 'in state' else data['oos_tuition']
             }
 
     job_query = """SELECT salary FROM Majors 
