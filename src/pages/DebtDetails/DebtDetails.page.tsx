@@ -63,7 +63,7 @@ export default function DebtDetailsPage() {
 
     return (
         <React.Fragment>
-            {initalstate &&
+            {
                 <Formik
                     initialValues={value}
                     onSubmit={onSubmit}
