@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     IonInput,
-    IonItem,
     IonLabel,
     IonCheckbox,
     IonIcon,
@@ -12,12 +11,14 @@ import { pencil } from 'ionicons/icons';
 import './AppInputCheckbox.component.css';
 
 export default function AppInputCheckboxComponent({
-    label
+    label,
+    checked,
+    value,
 }) {
     return (
         <div className="app-input-checkbox">
             <div className="checkbox">
-                <IonCheckbox />
+                <IonCheckbox checked={checked} />
             </div>
 
             <div className="label">
@@ -25,7 +26,7 @@ export default function AppInputCheckboxComponent({
             </div>
 
             <div className="input">
-                <span>$</span> <IonInput />
+                <span>$</span> <IonInput value={value}/>
             </div>
 
             <div className="icon">
