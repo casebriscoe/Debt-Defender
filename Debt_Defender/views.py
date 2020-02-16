@@ -72,7 +72,7 @@ def user_and_school_info(request):
     if request.method != 'POST':
         return redirect('/')
 
-    _id = request.POST['id']
+    _id = request.POST['_id']
 
     query = """SELECT * FROM Students JOIN Schools
     ON Students.School = Schools.Name WHERE Students.id = %s;"""
