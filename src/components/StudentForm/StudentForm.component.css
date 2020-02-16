@@ -4,3 +4,22 @@
     font-weight: 550;
     font-size: large;
 }
+
+.form-container {
+    margin-top: 5em;
+}
+
+.personal-info {
+    width: 100%;
+}
+
+.personal-info .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.student-info {
+
+    width: 100%;
+}
