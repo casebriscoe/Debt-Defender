@@ -106,9 +106,9 @@ def user_and_school_info(request):
 
 
 def debt_info(request):
-    if request.method != 'POST':
+    if request.method != 'GET':
         return redirect('/')
-    id = request.POST.get('id')
+    id = request.GET.get('id')
 
     query = """SELECT * FROM Students JOIN Schools
     ON Students.School = Schools.Name WHERE Students.id = %s;"""
