@@ -65,5 +65,5 @@ def total_tuition(data):
         sum+=data['instate_tuition']
     else:
         sum+=data['oos_tuition']
-    return sum
+    return data['semesters']*sum/2
 #################//#####main(int(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3]))
