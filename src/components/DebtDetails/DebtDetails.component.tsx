@@ -80,7 +80,6 @@ export default function DebtDetailsComponent() {
                 <DebtDetailsCardComponent
                     title="Other Students"
                 >
-
                     <AppListItemComponemt
                         title="Jane Doe"
                         subtitle="Payed off in 3 years"
