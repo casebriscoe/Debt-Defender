@@ -101,19 +101,7 @@ def user_and_school_info(request):
             'dining': row[17],
             'transportation': row[18]
             }
-    return JsonResponse(data)
-
-def salaries(request):
-
-    if request.method != 'POST':
-        return redirect('/')
-
-    conn = psycopg2.connect(settings.POSTGRES_STRING)
-    curs = conn.cursor()
-
-    query = """SELECT * FROM salariesPerJob"""
-    cur.execute(query)
-    conn.close()
+    return JsonResponse(data)    
 
 
 def homepage(request):
