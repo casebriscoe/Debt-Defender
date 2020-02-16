@@ -59,4 +59,11 @@ def monthly_payment_calculator(income):
 def main():
     return time_calculation(principal, income, rate)
 
-
+def total_tuition(data):
+    sum=data['book_costs']+data['personal_expenses']+data['room_and_board']+data['off_campus_housing']+data['books']+data['dining_costs']+data['transportation']-data['income']-data['scholarships']
+    if(data['residency'].lower()=='in state'):
+        sum+=data['instate_tuition']
+    else:
+        sum+=data['oos_tuition']
+    return data['semesters']*sum/2
+#################//#####main(int(sys.argv[1]), int(sys.argv[2]), float(sys.argv[3]))
