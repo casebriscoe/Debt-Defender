@@ -1,2 +1,2 @@
-web: gunicorn Debt_Defender.wsgi --log-file
+web: gunicorn Debt_Defender.wsgi --log-file -
 
