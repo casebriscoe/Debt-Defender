@@ -33,9 +33,9 @@ def login(request):
     conn.commit()
     conn.close()
 
-    return "beep"
+    return HttpResponse("beep")
 
 
 def homepage(request):
-    return "hoes mad x24"
+    return HttpResponse("hoes mad x24")
 
