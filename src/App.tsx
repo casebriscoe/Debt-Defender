@@ -43,7 +43,9 @@ const App: React.FC = () => (
     <IonReactRouter>
 
       {/* <StudentFormPage /> */}
-      <DebtDetailsPage />
+      
+      {/* <DebtDetailsPage />  */}
+      
       
     </IonReactRouter>
   </IonApp>
