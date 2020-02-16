@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
-
+import django_heroku
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -80,6 +80,9 @@ DATABASES = {
     }
 }
 
+POSTGRES_STRING =  "dbname=d4p060qtq9in2q host=ec2-52-202-185-87.compute-1.amazonaws.com port=5432 user=ygqcrlcpkgtcre password=358db2503247c7426af90297dd8a7b2c864aa29430b1f11fb312e1cf4cb26b5c sslmode=require"
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -118,3 +121,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+django_heroku.settings(locals())
+
