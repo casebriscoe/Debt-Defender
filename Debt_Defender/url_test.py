@@ -10,16 +10,15 @@ def login_test(data):
     print(response)
     return response
 
+def student_info_test(data):
+    full_url = url + 'student_info/'
+    response = requests.post(full_url, data=data)
+    return response
+
 data = {
-        'name': "Jill Buttlicker",
-        'school': "Maryland",
-        'income': 10,
-        'commitment': "Full time",
-        'major': "Cartwheels",
-        'scholarships': 10000,
-        'semesters': 12
+        'id':5
         }
-login_test(data)
+student_info_test(data)
 
 #conn = psycopg2.connect(settings.POSTGRES_STRING)
 #curr = conn.cursor()
