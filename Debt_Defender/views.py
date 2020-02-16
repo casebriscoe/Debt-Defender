@@ -82,52 +82,26 @@ def user_and_school_info(request):
     cur.execute(query)
     row = cur.fetchone()
     conn.close()
-
-    debt = {
-        'bookcosts': row[10],
-        'personalexpenses': row[11],
-        'in_state_tuition': row[12],
-        'out_of_state_tuition': row[13],
-        'room_and_board': row[14],
-        'off_campus_housing': row[15],
-        'books': row[16],
-        'dining': row[17],
-        'transportation': row[18]
-    }
-
-    user = {
-        'id': row[0],
-        'name': row[1],
-        'school': row[2],
-        'major': row[5]
-    }
-
-    capital = {
-        'income': row[3],
-        'commitment': row[4],
-        'scholarships': row[6],
-        'semesters': row[7]
-    }
-
     data = {
-            'capital': capital,
-            'debt': debt,
-            'user_info': user_info
+            'id': row[0],
+            'name': row[1],
+            'school': row[2],
+            'income': row[3],
+            'commitment': row[4],
+            'major': row[5],
+            'scholarships': row[6],
+            'semesters': row[7],
+            'bookcosts': row[10],
+            'personalexpenses': row[11],
+            'in_state_tuition': row[12],
+            'out_of_state_tuition': row[13],
+            'room_and_board': row[14],
+            'off_campus_housing': row[15],
+            'books': row[16],
+            'dining': row[17],
+            'transportation': row[18]
             }
-
-    return JsonResponse(data)
-
-def salaries(request):
-
-    if request.method != 'POST':
-        return redirect('/')
-
-    conn = psycopg2.connect(settings.POSTGRES_STRING)
-    curs = conn.cursor()
-
-    query = """SELECT * FROM salariesPerJob"""
-    cur.execute(query)
-    conn.close()
+    return JsonResponse(data)    
 
 
 def homepage(request):
